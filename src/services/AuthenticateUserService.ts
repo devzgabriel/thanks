@@ -10,9 +10,9 @@ interface IAuthenticateRequest {
 
 export class AuthenticateUserService {
   async execute({ email, password }: IAuthenticateRequest) {
-    const usersRepositories = getCustomRepository(UsersRepository)
+    const usersRepository = getCustomRepository(UsersRepository)
 
-    const user = await usersRepositories.findOne({ email })
+    const user = await usersRepository.findOne({ email })
 
     if (!user) {
       throw new Error('Email/Password Incorrect')

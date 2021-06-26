@@ -16,27 +16,27 @@ class CreateComplimentService {
     user_receiver,
     message,
   }: IComplimentRequest) {
-    const complimentsRepositories = getCustomRepository(ComplimentsRepository)
-    const usersRepositories = getCustomRepository(UsersRepository)
+    const complimentsRepository = getCustomRepository(ComplimentsRepository)
+    const usersRepository = getCustomRepository(UsersRepository)
 
     if (user_sender === user_receiver) {
       throw new Error('Incorrect User Receiver')
     }
 
-    const userReceiverExists = await usersRepositories.findOne(user_receiver)
+    const userReceiverExists = await usersRepository.findOne(user_receiver)
 
     if (!userReceiverExists) {
       throw new Error('User Receiver does not exists!')
     }
 
-    const compliment = complimentsRepositories.create({
+    const compliment = complimentsRepository.create({
       tag_id,
       user_receiver,
       user_sender,
       message,
     })
 
-    await complimentsRepositories.save(compliment)
+    await complimentsRepository.save(compliment)
 
     return compliment
   }
