@@ -7,11 +7,11 @@ export function ensureAdmin(
 ) {
   const admin = true
 
-  if (admin) {
-    next()
+  if (!admin) {
+    return response.status(401).json({
+      message: 'Access Denied',
+    })
   }
 
-  return response.status(401).json({
-    message: 'Access Denied',
-  })
+  next()
 }

@@ -1,3 +1,9 @@
+<h1 align="center">Thanks</h1>
+
+<p align="center">
+  <img alt="Preview" src="./.github/preview.png">
+</p>
+
 ## 🧪 Tecnologies
 
 This project was developed using back end technologies.
@@ -6,6 +12,7 @@ This project was developed using back end technologies.
 - [Typescript](https://www.typescriptlang.org/)
 - [Express](http://expressjs.com/)
 - [TypeORM](https://typeorm.io/)
+- [JSONWebToken](https://github.com/auth0/node-jsonwebtoken#readme)
 
 ## 🚀 Getting started
 
@@ -22,6 +29,9 @@ $ git clone https://github.com/devzgabriel/thanks.git && cd thanks
 ```bash
 # Install the dependencies
 $ yarn
+
+# Run migrations
+$ yarn typeorm migration:run
 
 # Run the backend
 $ yarn dev
